@@ -17,18 +17,16 @@ const images = [
 ];
 
 const createGalleryListItems = listItems =>
-  listItems.map(function (item) {
+  listItems.map(item => {
     const itemRef = document.createElement('li');
-    // const imgRef = document.createElement('img');
-    // imgRef.src = item.url;
-    // imgRef.alt = item.alt;
-    // imgRef.classList.add('gallery__img');
-    // // itemRef.insertAdjacentElement('beforeend', imgRef);
-    // console.log(imgRef);
-    console.log(`<img src=​"${item.url}" alt="​${item.alt}">​`);
+    itemRef.classList.add('gallery__item');
     itemRef.insertAdjacentHTML(
-      'beforeend',
-      `<img src=​"${item.url}" alt="​${item.alt}">​`,
+      'afterbegin',
+      `<img
+        src="${item.url}"
+        alt="${item.alt}"
+        class= "gallery__img"
+      />`,
     );
     return itemRef;
   });

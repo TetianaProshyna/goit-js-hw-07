@@ -25,7 +25,7 @@ const createGalleryListItems = listItems =>
     // imgRef.classList.add('gallery__img');
     // // itemRef.insertAdjacentElement('beforeend', imgRef);
     // console.log(imgRef);
-    console.log(`<img src=​'${item.url}' alt="​${item.alt}">​`);
+    console.log(`<img src=​"${item.url}" alt="​${item.alt}">​`);
     itemRef.insertAdjacentHTML(
       'beforeend',
       `<img src=​"${item.url}" alt="​${item.alt}">​`,

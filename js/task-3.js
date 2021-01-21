@@ -16,21 +16,36 @@ const images = [
   },
 ];
 
-const createGalleryListItems = listItems =>
-  listItems.map(item => {
-    const itemRef = document.createElement('li');
-    itemRef.classList.add('gallery__item');
-    itemRef.insertAdjacentHTML(
-      'afterbegin',
-      `<img
-        src="${item.url}"
-        alt="${item.alt}"
-        class= "gallery__img"
-      />`,
-    );
-    return itemRef;
+// const createGalleryListItems = listItems =>
+//   listItems.map(item => {
+//     const itemRef = document.createElement('li');
+//     itemRef.classList.add('gallery__item');
+//     itemRef.insertAdjacentHTML(
+//       'afterbegin',
+//       `<img
+//         src="${item.url}"
+//         alt="${item.alt}"
+//         class= "gallery__img"
+//       />`,
+//     );
+//     return itemRef;
+//   });
+// const galleryListRef = document.querySelector('#gallery');
+// galleryListRef.classList.add('gallary__list');
+
+// galleryListRef.append(...createGalleryListItems(images));
+
+const createGalleryListItems = listItems => {
+  let stringHTML = '';
+  listItems.forEach(item => {
+    stringHTML += `<li class="gallery__item">
+    <img src="${item.url}" 
+    alt="${item.alt}" 
+    class= "gallery__img"/></li>`;
   });
+  return stringHTML;
+};
 const galleryListRef = document.querySelector('#gallery');
 galleryListRef.classList.add('gallary__list');
 
-galleryListRef.append(...createGalleryListItems(images));
+galleryListRef.insertAdjacentHTML('afterbegin', createGalleryListItems(images));

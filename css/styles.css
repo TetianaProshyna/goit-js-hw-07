@@ -4,10 +4,36 @@
   list-style: none;
 }
 .gallery__item {
+  display: flex;
+  align-items: center;
   margin: 10px;
 }
 .gallery__img {
   display: block;
   width: 240px;
   height: auto;
+}
+
+#validation-input {
+  border: 3px solid #bdbdbd;
+}
+
+#validation-input.valid {
+  border-color: #4caf50;
+}
+
+#validation-input.invalid {
+  border-color: #f44336;
+}
+#counter {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#font-size-control {
+  margin-top: 20px;
+  display: block;
+}
+#text {
+  display: block;
+  margin-bottom: 20px;
 }

@@ -16,6 +16,8 @@ const images = [
   },
 ];
 
+/* First solution */
+
 // const createGalleryListItems = listItems =>
 //   listItems.map(item => {
 //     const itemRef = document.createElement('li');
@@ -35,15 +37,33 @@ const images = [
 
 // galleryListRef.append(...createGalleryListItems(images));
 
+/* Second solution */
+
+// const createGalleryListItems = listItems => {
+//   let stringHTML = '';
+//   listItems.forEach(item => {
+//     stringHTML += `<li class="gallery__item">
+//     <img src="${item.url}"
+//     alt="${item.alt}"
+//     class= "gallery__img"/></li>`;
+//   });
+//   return stringHTML;
+// };
+// const galleryListRef = document.querySelector('#gallery');
+// galleryListRef.classList.add('gallary__list');
+
+// galleryListRef.insertAdjacentHTML('afterbegin', createGalleryListItems(images));
+
+/* Third solution */
+
 const createGalleryListItems = listItems => {
-  let stringHTML = '';
-  listItems.forEach(item => {
-    stringHTML += `<li class="gallery__item">
+  return listItems.reduce((acc, item) => {
+    acc += `<li class="gallery__item">
     <img src="${item.url}" 
     alt="${item.alt}" 
     class= "gallery__img"/></li>`;
-  });
-  return stringHTML;
+    return acc;
+  }, '');
 };
 const galleryListRef = document.querySelector('#gallery');
 galleryListRef.classList.add('gallary__list');

@@ -16,6 +16,14 @@
 // должен быть шире и выше предыдущего на 10px
 // Создай функцию destroyBoxes(), которая очищает div#boxes.
 
+const divRef = document.querySelector('#boxes');
+const inputRef = document.querySelector('#controls>input');
+const renderBtnRef = document.querySelector('[data-action="render"]');
+const destroyBtnRef = document.querySelector('[data-action="destroy"]');
+
+renderBtnRef.addEventListener('click', getInputValue);
+destroyBtnRef.addEventListener('click', destroyBoxes);
+
 function getRandomColor() {
   const r = function () {
     return Math.floor(Math.random() * 256);
@@ -32,14 +40,14 @@ function createBoxes(amount) {
     contRef.style.backgroundColor = getRandomColor();
     contRef.style.width = size + 'px';
     contRef.style.height = size + 'px';
-    contRef.classList.add('added-container');
     size += 10;
     divRef.appendChild(contRef);
   });
 }
 
-function getInput() {
+function getInputValue() {
   createBoxes(Number(inputRef.value));
+  inputRef.value = '';
 }
 
 function destroyBoxes() {
@@ -47,11 +55,3 @@ function destroyBoxes() {
     divRef.removeChild(divRef.firstChild);
   }
 }
-
-const divRef = document.querySelector('#boxes');
-const inputRef = document.querySelector('#controls>input');
-const renderBtnRef = document.querySelector('[data-action="render"]');
-const destroyBtnRef = document.querySelector('[data-action="destroy"]');
-
-renderBtnRef.addEventListener('click', getInput);
-destroyBtnRef.addEventListener('click', destroyBoxes);
